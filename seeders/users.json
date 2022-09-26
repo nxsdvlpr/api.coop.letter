@@ -1,0 +1,42 @@
+[
+  {
+    "roleId": "1",
+    "username": "admin@app.com",
+    "password": "admin@app.com",
+    "name": "Administrator",
+    "phone": "081100000011",
+    "avatar": "https://loremflickr.com/500/500?1000"
+  },
+  {
+    "roleId": "2",
+    "username": "sales@app.com",
+    "password": "sales@app.com",
+    "name": "Sales",
+    "phone": "081100000012",
+    "avatar": "https://loremflickr.com/500/500?2000"
+  },
+  {
+    "roleId": "3",
+    "username": "verifier@app.com",
+    "password": "verifier@app.com",
+    "name": "Verifier",
+    "phone": "081100000013",
+    "avatar": "https://loremflickr.com/500/500?3000"
+  },
+  {
+    "roleId": "4",
+    "username": "finance@app.com",
+    "password": "finance@app.com",
+    "name": "Finance",
+    "phone": "081100000014",
+    "avatar": "https://loremflickr.com/500/500?4000"
+  },
+  {
+    "roleId": "5",
+    "username": "collection@app.com",
+    "password": "collection@app.com",
+    "name": "Collection",
+    "phone": "081100000015",
+    "avatar": "https://loremflickr.com/500/500?5000"
+  }
+]
