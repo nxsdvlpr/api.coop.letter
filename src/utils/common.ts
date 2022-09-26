@@ -2,7 +2,7 @@ import { dirname } from 'path';
 import { createWriteStream, mkdirSync } from 'fs';
 import axios from 'axios';
 
-// Get value based on env (def: production)
+// Get value based on env (def: letterion)
 export const enval = (dev: any, prod: any): any => {
   let value = prod;
   if (process.env.APP_ENV === 'local') {

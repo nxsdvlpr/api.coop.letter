@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateRoleTable1645160799580 implements MigrationInterface {
+export class CreateOptionTable1645160799381 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'role',
+        name: 'option',
         columns: [
           {
             name: 'id',
@@ -14,26 +14,21 @@ export class CreateRoleTable1645160799580 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'created_at',
-            type: 'timestamptz',
-            default: 'now()',
-          },
-          {
-            name: 'updated_at',
-            type: 'timestamptz',
-            default: 'now()',
-          },
-          {
             name: 'name',
             type: 'varchar',
           },
           {
-            name: 'shortname',
+            name: 'label',
             type: 'varchar',
           },
           {
-            name: 'access',
-            type: 'jsonb',
+            name: 'value',
+            type: 'text',
+            isNullable: true,
+          },
+          {
+            name: 'type',
+            type: 'varchar',
           },
         ],
       }),
@@ -42,6 +37,6 @@ export class CreateRoleTable1645160799580 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('role');
+    await queryRunner.dropTable('option');
   }
 }

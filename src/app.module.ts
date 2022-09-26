@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { OptionModule } from './option/option.module';
 import { UploadModule } from './upload/upload.module';
+import { LetterModule } from './letter/letter.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { UploadModule } from './upload/upload.module';
     AuthModule,
     RoleModule,
     UserModule,
+    LetterModule,
   ],
   providers: [
     {
