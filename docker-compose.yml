@@ -1,34 +1,34 @@
 version: '3.9'
 
 services:
-  paylater_rata_dev-main-db:
-    container_name: paylater_rata_dev-main-db
+  coop_letter_dev-main-db:
+    container_name: coop_letter_dev-main-db
     image: postgres:13
-    hostname: paylater_rata_dev-main-db
+    hostname: coop_letter_dev-main-db
     ports:
       - '5436:5432'
     restart: always
     volumes:
-      - paylater_rata_dev_main_db_data:/var/lib/postgresql/data
+      - coop_letter_dev_main_db_data:/var/lib/postgresql/data
     environment:
       TZ: 'UTC'
-      POSTGRES_DB: paylater-rata
-      POSTGRES_USER: paylater-rata-user
+      POSTGRES_DB: coop-letter
+      POSTGRES_USER: coop-letter-user
       POSTGRES_PASSWORD: 90Lz1AHTsXe293F0WS4FRq
     networks:
-      - paylater_rata_net
-  paylater_rata_dev-redis:
-    container_name: paylater_rata_dev-redis
+      - coop_letter_net
+  coop_letter_dev-redis:
+    container_name: coop_letter_dev-redis
     image: redis:6.2-alpine
     restart: always
     ports:
       - 6376:6379
     command: redis-server --save 60 1 --requirepass 90Lz1AHTsXe293F0WS4FRq --loglevel warning
     networks:
-      - paylater_rata_net
+      - coop_letter_net
 volumes:
-  paylater_rata_dev_main_db_data:
+  coop_letter_dev_main_db_data:
 
 networks:
-  paylater_rata_net:
+  coop_letter_net:
     driver: bridge

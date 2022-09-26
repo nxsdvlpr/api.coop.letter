@@ -35,6 +35,19 @@ export class CreateLetterTable1645160828154 implements MigrationInterface {
             length: '6',
           },
           {
+            name: 'published_date',
+            type: 'date',
+            default: 'now()',
+          },
+          {
+            name: 'city',
+            type: 'varchar',
+          },
+          {
+            name: 'destination',
+            type: 'varchar',
+          },
+          {
             name: 'subject',
             type: 'varchar',
           },

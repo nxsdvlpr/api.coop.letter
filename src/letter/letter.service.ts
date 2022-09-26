@@ -7,42 +7,59 @@ import { TypeOrmQueryService } from '@nestjs-query/query-typeorm';
 import { CreateLetterInput } from './dto/create-letter.input';
 import { Letter } from './letter.entity';
 import { UpdateLetterInput } from './dto/update-letter.input';
-import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { AuthenticatedUser } from 'src/auth/auth.interfaces';
+import { QuickOrm } from 'src/utils';
+import { CommonService } from 'src/common/common.service';
 
 @QueryService(Letter)
 export class LetterService extends TypeOrmQueryService<Letter> {
   constructor(
     @InjectRepository(Letter)
     private letterRepository: Repository<Letter>,
+    private readonly commonService: CommonService
   ) {
     super(letterRepository);
   }
+
 
   async create(
     authUser: AuthenticatedUser,
     input: CreateLetterInput,
   ): Promise<Letter> {
-    const letter = assign(new Letter(), input);
+    const data = assign(new Letter(), input);
 
-    letter.userId = authUser.id
+    data.userId = authUser.id;
 
-    return this.letterRepository.save(letter);
+    const letter = new QuickOrm(this.letterRepository)
+      .addRelation('tags');
+
+    letter.beforeRelationCreate((relation, el) => {
+      if (relation === 'tags' && !el.id) {
+        el.slug = this.commonService.slugify(el.label);
+      }
+    });
+
+    return letter.create(data);
   }
 
   async update(
     authUser: AuthenticatedUser,
-    input: UpdateLetterInput,
-  ): Promise<Letter> {
-    const letter = await this.letterRepository.findOne(input.id);
+    input: UpdateLetterInput): Promise<Letter> {
+    const data = {
+      id: input.id,
+      update: assign(new Letter(), input.update)
+    };
 
-    if (!letter) {
-      throw new NotFoundException(
-        `Unable to find Letter with id: ${input.id}`,
-      );
-    }
+    const letter = new QuickOrm(this.letterRepository)
+      .addRelation('tags');
 
-    assign(letter, input.update);
-    return this.letterRepository.save(letter);
+    letter.beforeRelationUpdate((relation, el) => {
+      if (relation === 'tags' && !el.id) {
+        el.slug = this.commonService.slugify(el.label);
+      }
+    });
+
+    return letter.update(data);
   }
+
 }

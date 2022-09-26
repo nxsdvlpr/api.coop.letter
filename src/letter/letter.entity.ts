@@ -4,12 +4,17 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { User } from 'src/user/user.entity';
+import { Tag } from 'src/tag/tag.entity'
+import { LetterTag } from 'src/tag/letter-tag.entity';
 
 @Entity()
 export class Letter {
@@ -33,9 +38,28 @@ export class Letter {
   @UpdateDateColumn()
   updatedAt: Date;
 
+
   @Column()
   ref: string;
 
+  @Column({ type: 'date' })
+  publishedDate: string;
+
+  @Column()
+  city: string;
+
+  @Column()
+  destination: string;
+
   @Column()
   subject: string;
+
+  @ManyToMany(() => Tag, (tag) => tag.letters, {
+    cascade: true,
+  })
+  @JoinTable({ name: 'letter_tag' })
+  tags!: Tag[];
+
+  @OneToMany(() => LetterTag, (letterTag) => letterTag.letter)
+  letterTags!: LetterTag[];
 }

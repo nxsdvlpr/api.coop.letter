@@ -7,6 +7,16 @@ export class LetterInput {
   @IDField(() => SiDScalar)
   id: string;
 
+
+  @Field()
+  publishedDate: string;
+
+  @Field()
+  city: string;
+
+  @Field()
+  destination: string;
+
   @Field()
   subject: string;
 }
