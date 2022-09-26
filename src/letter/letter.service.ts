@@ -23,13 +23,9 @@ export class LetterService extends TypeOrmQueryService<Letter> {
     authUser: AuthenticatedUser,
     input: CreateLetterInput,
   ): Promise<Letter> {
-    if (!['admin', 'sales'].includes(authUser.role.shortname)) {
-      throw new BadRequestException(
-        'You are not allowed to perform this action',
-      );
-    }
-
     const letter = assign(new Letter(), input);
+
+    letter.userId = authUser.id
 
     return this.letterRepository.save(letter);
   }
@@ -38,12 +34,6 @@ export class LetterService extends TypeOrmQueryService<Letter> {
     authUser: AuthenticatedUser,
     input: UpdateLetterInput,
   ): Promise<Letter> {
-    if (!['admin', 'sales'].includes(authUser.role.shortname)) {
-      throw new BadRequestException(
-        'You are not allowed to perform this action',
-      );
-    }
-
     const letter = await this.letterRepository.findOne(input.id);
 
     if (!letter) {

@@ -8,17 +8,5 @@ export class LetterInput {
   id: string;
 
   @Field()
-  title: string;
-
-  @Field({ nullable: true })
-  description: string;
-
-  @Field()
-  price: number;
-
-  @Field({ nullable: true })
-  image: string;
-
-  @Field()
-  isActive: boolean;
+  subject: string;
 }

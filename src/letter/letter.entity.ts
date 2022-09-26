@@ -1,15 +1,31 @@
+
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import { User } from 'src/user/user.entity';
 
 @Entity()
 export class Letter {
   @PrimaryGeneratedColumn()
   id: string;
+
+  @ManyToOne(() => User, (user) => user.letters, {
+    onDelete: 'CASCADE',
+    nullable: false,
+    orphanedRowAction: 'delete',
+  })
+  @JoinColumn()
+  user: User;
+
+  @Column()
+  userId: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -18,17 +34,8 @@ export class Letter {
   updatedAt: Date;
 
   @Column()
-  title: string;
-
-  @Column({ nullable: true })
-  description: string;
+  ref: string;
 
   @Column()
-  price: number;
-
-  @Column({ nullable: true })
-  image: string;
-
-  @Column()
-  isActive: boolean;
+  subject: string;
 }

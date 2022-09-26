@@ -1,3 +1,4 @@
+import { Letter } from 'src/letter/letter.entity';
 import { Role } from 'src/role/role.entity';
 
 import {
@@ -6,6 +7,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -46,4 +48,7 @@ export class User {
 
   @Column({ nullable: true })
   avatar: string;
+
+  @OneToMany(() => Letter, (letter) => letter.user)
+  letters: Letter[];
 }
