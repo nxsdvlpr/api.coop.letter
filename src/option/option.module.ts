@@ -39,4 +39,4 @@ import { OptionController } from './option.controller';
   providers: [OptionResolver, OptionSeeder, CommonService],
   exports: [TypeOrmModule, NestjsQueryGraphQLModule],
 })
-export class OptionModule {}
+export class OptionModule { }

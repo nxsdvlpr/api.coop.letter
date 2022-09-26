@@ -10,6 +10,10 @@ import { UserModule } from './user/user.module';
 import { UserSeeder } from './user/user.seeder';
 import { OptionSeeder } from './option/option.seeder';
 import { OptionModule } from './option/option.module';
+import { LetterSeeder } from './letter/letter.seeder';
+import { LetterModule } from './letter/letter.module';
+import { TagModule } from './tag/tag.module';
+import { TagSeeder } from './tag/tag.seeder';
 
 seeder({
   imports: [
@@ -23,10 +27,13 @@ seeder({
     OptionModule,
     RoleModule,
     UserModule,
-
+    LetterModule,
+    TagModule,
   ],
 }).run([
   OptionSeeder,
   RoleSeeder,
   UserSeeder,
+  LetterSeeder,
+  TagSeeder,
 ]);

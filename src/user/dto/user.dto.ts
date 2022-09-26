@@ -4,6 +4,7 @@ import {
   BeforeUpdateOne,
   FilterableField,
   FilterableRelation,
+  FilterableUnPagedRelation,
   IDField,
   QueryOptions,
 } from '@nestjs-query/query-graphql';
@@ -14,6 +15,7 @@ import {
   Directive,
 } from '@nestjs/graphql';
 import { SiDScalar } from 'src/common/sid.scalar';
+import { LetterDto } from 'src/letter/dto/letter.dto';
 import { RoleDto } from 'src/role/dto/role.dto';
 import { UserBeforeCreateHook } from '../hooks/user-berfore-create.hook';
 import { UserBeforeUpdateHook } from '../hooks/user-berfore-update.hook';
@@ -26,6 +28,9 @@ import { UserAuthorizer } from '../user.authorizer';
 @BeforeUpdateOne(UserBeforeUpdateHook)
 @QueryOptions({ enableTotalCount: true })
 @FilterableRelation('role', () => RoleDto, {
+  disableRemove: true,
+})
+@FilterableUnPagedRelation('letters', () => LetterDto, {
   disableRemove: true,
 })
 export class UserDto {

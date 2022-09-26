@@ -8,7 +8,7 @@ import { OptionService } from './option.service';
 
 @Resolver(() => OptionDto)
 export class OptionResolver {
-  constructor(private readonly optionService: OptionService) {}
+  constructor(private readonly optionService: OptionService) { }
 
   @Mutation(() => GraphQLJSON)
   async updateOptions(
