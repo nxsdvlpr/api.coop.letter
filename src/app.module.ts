@@ -14,6 +14,7 @@ import { OptionModule } from './option/option.module';
 import { UploadModule } from './upload/upload.module';
 import { LetterModule } from './letter/letter.module';
 import { TagModule } from './tag/tag.module';
+import { CompanyModule } from './company/company.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { TagModule } from './tag/tag.module';
     AuthModule,
     RoleModule,
     UserModule,
+    CompanyModule,
     LetterModule,
     TagModule,
   ],
@@ -48,4 +50,4 @@ import { TagModule } from './tag/tag.module';
     },
   ],
 })
-export class AppModule { }
+export class AppModule {}

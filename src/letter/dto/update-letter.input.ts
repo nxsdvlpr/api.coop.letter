@@ -4,9 +4,7 @@ import { LetterTagInput } from './letter-tag.input';
 import { LetterInput } from './letter.input';
 
 @InputType()
-export class UpdateLetterData extends PartialType(
-  OmitType(LetterInput, []),
-) {
+export class UpdateLetterData extends PartialType(OmitType(LetterInput, [])) {
   @Field(() => [LetterTagInput])
   tags: LetterTagInput[];
 }

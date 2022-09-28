@@ -1,4 +1,3 @@
-import { Factory } from 'nestjs-seeder';
 import { Letter } from 'src/letter/letter.entity';
 import {
   Column,
@@ -28,16 +27,9 @@ export class Tag {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @Factory(
-    (faker) =>
-      `${faker.commerce
-        .department()
-        .toLowerCase()} (${faker.random.alphaNumeric(3)})`,
-  )
   @Column({ unique: true })
   label: string;
 
-  @Factory((faker, ctx) => faker.helpers.slugify(ctx.label))
   @Column({ unique: true })
   slug: string;
 }

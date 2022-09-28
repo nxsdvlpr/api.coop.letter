@@ -10,12 +10,14 @@ import { LetterResolver } from './letter.resolver';
 import { LetterSeeder } from './letter.seeder';
 import { LetterService } from './letter.service';
 import { LetterDto } from './dto/letter.dto';
+import { CompanyService } from 'src/company/company.service';
+import { Company } from 'src/company/company.entity';
 
 @Module({
   imports: [
     NestjsQueryGraphQLModule.forFeature({
-      imports: [NestjsQueryTypeOrmModule.forFeature([Letter])],
-      services: [LetterService, CommonService],
+      imports: [NestjsQueryTypeOrmModule.forFeature([Letter, Company])],
+      services: [LetterService, CompanyService, CommonService],
       resolvers: [
         {
           DTOClass: LetterDto,
@@ -28,6 +30,9 @@ import { LetterDto } from './dto/letter.dto';
           update: {
             disabled: true,
           },
+          delete: {
+            disabled: true,
+          },
         },
       ],
     }),
@@ -36,4 +41,4 @@ import { LetterDto } from './dto/letter.dto';
   providers: [LetterResolver, LetterSeeder],
   exports: [TypeOrmModule],
 })
-export class LetterModule { }
+export class LetterModule {}
