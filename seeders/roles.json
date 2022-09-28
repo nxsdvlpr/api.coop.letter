@@ -1,27 +1,26 @@
 [
   {
+    "id": "1",
     "name": "Admin",
     "shortname": "admin",
-    "access": "{\"home\": true, \"promo\": true, \"letter\": true, \"calendar\": false, \"customer\": true, \"loan_loan\": true, \"loan_my_loan\": false, \"setting_bank\": true, \"loan_repayment\": true, \"setting_general\": true, \"loan_loan_create\": false, \"payment_loan_refund\": true, \"payment_loan_payment\": true, \"setting_payment_account\": true, \"setting_user_management\": true, \"loan_loan_payment_create\": false}"
+    "access": {
+      "home": true,
+      "letter": true,
+      "setting_general": true,
+      "setting_company": true,
+      "setting_user_management": true
+    }
   },
   {
-    "name": "Sales",
-    "shortname": "sales",
-    "access": "{\"home\": true, \"promo\": false, \"letter\": true, \"calendar\": false, \"customer\": true, \"loan_loan\": true, \"loan_my_loan\": true, \"setting_bank\": false, \"loan_repayment\": false, \"setting_general\": false, \"loan_loan_create\": true, \"payment_loan_refund\": false, \"payment_loan_payment\": false, \"setting_payment_account\": false, \"setting_user_management\": false, \"loan_loan_payment_create\": false}"
-  },
-  {
-    "name": "Verifier",
-    "shortname": "verifier",
-    "access": "{\"home\": true, \"promo\": false, \"letter\": false, \"calendar\": false, \"customer\": true, \"loan_loan\": true, \"loan_my_loan\": true, \"setting_bank\": false, \"loan_repayment\": false, \"setting_general\": false, \"loan_loan_create\": false, \"payment_loan_refund\": false, \"payment_loan_payment\": false, \"setting_payment_account\": false, \"setting_user_management\": false, \"loan_loan_payment_create\": false}"
-  },
-  {
-    "name": "Finance",
-    "shortname": "finance",
-    "access": "{\"home\": true, \"promo\": false, \"letter\": false, \"calendar\": false, \"customer\": false, \"loan_loan\": true, \"loan_my_loan\": false, \"setting_bank\": true, \"loan_repayment\": true, \"setting_general\": false, \"loan_loan_create\": false, \"payment_loan_refund\": true, \"payment_loan_payment\": true, \"setting_payment_account\": true, \"setting_user_management\": false, \"loan_loan_payment_create\": false}"
-  },
-  {
-    "name": "Collection",
-    "shortname": "collection",
-    "access": "{\"home\": true, \"promo\": false, \"letter\": false, \"calendar\": true, \"customer\": true, \"loan_loan\": true, \"loan_my_loan\": true, \"setting_bank\": false, \"loan_repayment\": false, \"setting_general\": false, \"loan_loan_create\": false, \"payment_loan_refund\": false, \"payment_loan_payment\": false, \"setting_payment_account\": false, \"setting_user_management\": false, \"loan_loan_payment_create\": true}"
+    "id": "2",
+    "name": "User",
+    "shortname": "user",
+    "access": {
+      "home": true,
+      "letter": true,
+      "setting_general": false,
+      "setting_company": false,
+      "setting_user_management": false
+    }
   }
 ]

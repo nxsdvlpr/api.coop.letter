@@ -7,12 +7,16 @@ import {
 } from '@nestjs-query/query-graphql';
 import { Directive, GraphQLISODateTime, ObjectType } from '@nestjs/graphql';
 import { SiDScalar } from 'src/common/sid.scalar';
+import { CompanyDto } from 'src/company/dto/company.dto';
 import { TagDto } from 'src/tag/dto/tag.dto';
 import { UserDto } from 'src/user/dto/user.dto';
 
 @ObjectType('Letter')
 @Directive('@key(fields: "id")')
 @QueryOptions({ enableTotalCount: true })
+@FilterableRelation('company', () => CompanyDto, {
+  disableRemove: true,
+})
 @FilterableRelation('user', () => UserDto, {
   disableRemove: true,
 })
@@ -38,12 +42,21 @@ export class LetterDto {
   @FilterableField()
   publishedDate: string;
 
+  @FilterableField(() => SiDScalar)
+  companyId: string;
+
+  @FilterableField()
+  category: string;
+
   @FilterableField()
   city: string;
 
   @FilterableField()
-  destination: string;
+  to: string;
 
   @FilterableField()
   subject: string;
+
+  @FilterableField({ nullable: true })
+  attachment: string;
 }

@@ -17,14 +17,24 @@ export class UserSeeder implements Seeder {
     const jsonFile = readFileSync('./seeders/users.json', 'utf8');
     const data = JSON.parse(jsonFile);
 
-    const users = [];
     for (let i = 0; i < data.length; i++) {
       const element = data[i];
-      element.password = bcrypt.hashSync(element.password, 10);
-      users.push(element);
-    }
 
-    await this.userRepository.save(users);
+      if (element.id) {
+        const tableName = this.userRepository.metadata.tableName;
+        const seqNum = element.id - 1;
+
+        if (seqNum > 0) {
+          await this.userRepository.manager.query(
+            `SELECT SETVAL('${tableName}_id_seq', ${seqNum})`,
+          );
+        }
+      }
+
+      element.password = bcrypt.hashSync(element.password, 10);
+
+      await this.userRepository.save(element);
+    }
   }
 
   async drop(): Promise<any> {

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DataFactory, Seeder } from 'nestjs-seeder';
+import { Seeder } from 'nestjs-seeder';
 import { Repository } from 'typeorm';
 import { LetterTag } from './letter-tag.entity';
 import { Tag } from './tag.entity';
@@ -12,14 +12,10 @@ export class TagSeeder implements Seeder {
     private readonly tagRepository: Repository<Tag>,
     @InjectRepository(LetterTag)
     private readonly customerTagRepository: Repository<LetterTag>,
-  ) { }
+  ) {}
 
   async seed(): Promise<any> {
-    const tags = DataFactory.createForClass(Tag).generate(5);
-    await this.tagRepository.save(tags);
-
-    const customerTags = DataFactory.createForClass(LetterTag).generate(20);
-    await this.customerTagRepository.save(customerTags);
+    await this.customerTagRepository.save([]);
   }
 
   async drop(): Promise<any> {

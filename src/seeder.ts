@@ -14,6 +14,8 @@ import { LetterSeeder } from './letter/letter.seeder';
 import { LetterModule } from './letter/letter.module';
 import { TagModule } from './tag/tag.module';
 import { TagSeeder } from './tag/tag.seeder';
+import { CompanySeeder } from './company/company.seeder';
+import { CompanyModule } from './company/company.module';
 
 seeder({
   imports: [
@@ -27,6 +29,7 @@ seeder({
     OptionModule,
     RoleModule,
     UserModule,
+    CompanyModule,
     LetterModule,
     TagModule,
   ],
@@ -34,6 +37,7 @@ seeder({
   OptionSeeder,
   RoleSeeder,
   UserSeeder,
+  CompanySeeder,
   LetterSeeder,
   TagSeeder,
 ]);
