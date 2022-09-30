@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateTagTable1645160828155 implements MigrationInterface {
+export class CreateCompanyTable1645160828154 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'tag',
+        name: 'company',
         columns: [
           {
             name: 'id',
@@ -24,14 +24,19 @@ export class CreateTagTable1645160828155 implements MigrationInterface {
             default: 'now()',
           },
           {
-            name: 'label',
+            name: 'name',
             type: 'varchar',
-            isUnique: true,
           },
           {
-            name: 'slug',
+            name: 'code',
             type: 'varchar',
             isUnique: true,
+            length: '10',
+          },
+          {
+            name: 'counter',
+            type: 'int',
+            default: 0,
           },
         ],
       }),
@@ -40,6 +45,6 @@ export class CreateTagTable1645160828155 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('tag');
+    await queryRunner.dropTable('company');
   }
 }

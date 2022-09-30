@@ -5,4 +5,4 @@ import { TagInput } from 'src/tag/dto/tag.input';
 export class LetterTagInput extends PickType(TagInput, [
   'id',
   'label',
-] as const) { }
+] as const) {}
