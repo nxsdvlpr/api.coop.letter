@@ -15,12 +15,14 @@ import { UploadModule } from './upload/upload.module';
 import { LetterModule } from './letter/letter.module';
 import { TagModule } from './tag/tag.module';
 import { CompanyModule } from './company/company.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRootAsync({
       useFactory: async () =>
         Object.assign(await getConnectionOptions(), {
