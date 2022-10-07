@@ -13,8 +13,8 @@
   },
   {
     "id": "2",
-    "name": "User",
-    "shortname": "user",
+    "name": "Staff",
+    "shortname": "staff",
     "access": {
       "home": true,
       "letter": true,
