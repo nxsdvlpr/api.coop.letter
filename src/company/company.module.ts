@@ -8,6 +8,7 @@ import { CompanyResolver } from './company.resolver';
 import { CompanySeeder } from './company.seeder';
 import { CompanyService } from './company.service';
 import { CompanyDto } from './dto/company.dto';
+import { CompanySchedule } from './company.schedule';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import { CompanyDto } from './dto/company.dto';
     }),
     TypeOrmModule.forFeature([Company]),
   ],
-  providers: [CompanyResolver, CompanySeeder],
+  providers: [CompanyResolver, CompanySchedule, CompanySeeder],
   exports: [TypeOrmModule],
 })
 export class CompanyModule {}
