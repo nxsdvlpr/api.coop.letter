@@ -19,11 +19,11 @@ import { LetterDto } from 'src/letter/dto/letter.dto';
 import { RoleDto } from 'src/role/dto/role.dto';
 import { UserBeforeCreateHook } from '../hooks/user-berfore-create.hook';
 import { UserBeforeUpdateHook } from '../hooks/user-berfore-update.hook';
-import { UserAuthorizer } from '../user.authorizer';
+// import { UserAuthorizer } from '../user.authorizer';
 
 @ObjectType('User')
 @Directive('@key(fields: "id")')
-@Authorize(UserAuthorizer)
+// @Authorize(UserAuthorizer)
 @BeforeCreateOne(UserBeforeCreateHook)
 @BeforeUpdateOne(UserBeforeUpdateHook)
 @QueryOptions({ enableTotalCount: true })
