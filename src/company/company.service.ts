@@ -1,7 +1,7 @@
 import { assign } from 'lodash';
 import { InjectRepository } from '@nestjs/typeorm';
 import { QueryService } from '@nestjs-query/core';
-import { Repository } from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import { TypeOrmQueryService } from '@nestjs-query/query-typeorm';
 
 import { CreateCompanyInput } from './dto/create-company.input';
@@ -44,12 +44,23 @@ export class CompanyService extends TypeOrmQueryService<Company> {
     return company.update(data);
   }
 
-  async setCounter(id: string, value: number) {
+  async setCounter(id: string, value: number): Promise<UpdateResult> {
     return this.companyRepository.update(
       { id },
       {
         counter: value,
       },
+    );
+  }
+
+  async resetCounter(): Promise<void> {
+    const companies = await this.companyRepository.find();
+
+    await this.companyRepository.save(
+      companies.map((company) => {
+        company.counter = 0;
+        return company;
+      }),
     );
   }
 }
