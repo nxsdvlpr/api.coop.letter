@@ -9,9 +9,9 @@
   },
   {
     "roleId": "2",
-    "username": "user@app.com",
-    "password": "user@app.com",
-    "name": "User",
+    "username": "staff@app.com",
+    "password": "staff@app.com",
+    "name": "Staff",
     "phone": "081100000012",
     "avatar": "https://loremflickr.com/500/500?2000"
   }
