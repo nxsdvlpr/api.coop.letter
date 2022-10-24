@@ -20,9 +20,6 @@ export class LetterInput {
   category: string;
 
   @Field()
-  city: string;
-
-  @Field()
   to: string;
 
   @Field()
