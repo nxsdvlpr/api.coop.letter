@@ -49,9 +49,6 @@ export class LetterDto {
   category: string;
 
   @FilterableField()
-  city: string;
-
-  @FilterableField()
   to: string;
 
   @FilterableField()

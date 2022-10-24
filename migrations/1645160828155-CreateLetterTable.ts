@@ -53,10 +53,6 @@ export class CreateLetterTable1645160828155 implements MigrationInterface {
             length: '1',
           },
           {
-            name: 'city',
-            type: 'varchar',
-          },
-          {
             name: 'to',
             type: 'varchar',
           },

@@ -59,9 +59,6 @@ export class Letter {
   category: string;
 
   @Column()
-  city: string;
-
-  @Column()
   to: string;
 
   @Column()
