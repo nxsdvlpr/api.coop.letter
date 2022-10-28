@@ -16,6 +16,8 @@ import { LetterModule } from './letter/letter.module';
 import { TagModule } from './tag/tag.module';
 import { CompanyModule } from './company/company.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { AuthorModule } from './author/author.module';
+import { CityModule } from './city/city.module';
 
 @Module({
   imports: [
@@ -41,6 +43,8 @@ import { ScheduleModule } from '@nestjs/schedule';
     AuthModule,
     RoleModule,
     UserModule,
+    AuthorModule,
+    CityModule,
     CompanyModule,
     LetterModule,
     TagModule,
