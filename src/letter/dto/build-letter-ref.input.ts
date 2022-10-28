@@ -4,6 +4,7 @@ import { LetterInput } from './letter.input';
 @InputType()
 export class BuildLetterRefInput extends PickType(LetterInput, [
   'companyId',
+  'type',
   'category',
 ] as const) {
   @Field({

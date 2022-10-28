@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "created_at": "2022-10-28 07:35:35.957523",
+    "updated_at": "2022-10-28 07:35:35.957523",
+    "name": "Liska Maharani"
+  },
+  {
+    "id": 2,
+    "created_at": "2022-10-28 07:35:43.14153",
+    "updated_at": "2022-10-28 07:35:43.14153",
+    "name": "Herson Tendean"
+  },
+  {
+    "id": 3,
+    "created_at": "2022-10-28 07:35:48.866374",
+    "updated_at": "2022-10-28 07:35:48.866374",
+    "name": "Selvy Rahmika"
+  },
+  {
+    "id": 4,
+    "created_at": "2022-10-28 07:35:55.990189",
+    "updated_at": "2022-10-28 07:35:55.990189",
+    "name": "Nensi Audika"
+  },
+  {
+    "id": 5,
+    "created_at": "2022-10-28 07:36:02.239577",
+    "updated_at": "2022-10-28 07:36:02.239577",
+    "name": "Sholikin"
+  },
+  {
+    "id": 6,
+    "created_at": "2022-10-28 07:36:08.274879",
+    "updated_at": "2022-10-28 07:36:08.274879",
+    "name": "Yunita Wahyu Aryani"
+  },
+  {
+    "id": 7,
+    "created_at": "2022-10-28 07:36:15.228618",
+    "updated_at": "2022-10-28 07:36:15.228618",
+    "name": "Ragila Farda Karima"
+  },
+  {
+    "id": 8,
+    "created_at": "2022-10-28 07:36:20.167203",
+    "updated_at": "2022-10-28 07:36:20.167203",
+    "name": "Winairoh"
+  },
+  {
+    "id": 9,
+    "created_at": "2022-10-28 07:36:25.557232",
+    "updated_at": "2022-10-28 07:36:25.557232",
+    "name": "Cristian Ade Candra"
+  },
+  {
+    "id": 10,
+    "created_at": "2022-10-28 07:36:32.211717",
+    "updated_at": "2022-10-28 07:36:32.211717",
+    "name": "Amboro Alfianto"
+  },
+  {
+    "id": 11,
+    "created_at": "2022-10-28 07:36:38.339831",
+    "updated_at": "2022-10-28 07:36:38.339831",
+    "name": "Arief Rivani Nugraha"
+  },
+  {
+    "id": 12,
+    "created_at": "2022-10-28 07:36:45.064622",
+    "updated_at": "2022-10-28 07:36:45.064622",
+    "name": "Nur Rizki Adi Jourgia Abdillah"
+  },
+  {
+    "id": 13,
+    "created_at": "2022-10-28 07:36:52.241476",
+    "updated_at": "2022-10-28 07:36:52.241476",
+    "name": "Reny Diana Putri, S.S"
+  },
+  {
+    "id": 14,
+    "created_at": "2022-10-28 07:36:58.385208",
+    "updated_at": "2022-10-28 07:36:58.385208",
+    "name": "Irwan Ardiyanto"
+  },
+  {
+    "id": 15,
+    "created_at": "2022-10-28 07:37:04.186948",
+    "updated_at": "2022-10-28 07:37:04.186948",
+    "name": "Yusron Ahmadi"
+  },
+  {
+    "id": 16,
+    "created_at": "2022-10-28 07:37:10.322893",
+    "updated_at": "2022-10-28 07:37:10.322893",
+    "name": "Pupung Masitoh"
+  },
+  {
+    "id": 17,
+    "created_at": "2022-10-28 07:37:16.004711",
+    "updated_at": "2022-10-28 07:37:16.004711",
+    "name": "Leila Djawas"
+  }
+]

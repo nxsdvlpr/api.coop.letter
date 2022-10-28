@@ -7,7 +7,9 @@
       "home": true,
       "letter": true,
       "setting_general": true,
+      "setting_author": true,
       "setting_company": true,
+      "setting_city": true,
       "setting_user_management": true
     }
   },
@@ -19,7 +21,9 @@
       "home": true,
       "letter": true,
       "setting_general": false,
+      "setting_author": false,
       "setting_company": false,
+      "setting_city": false,
       "setting_user_management": false
     }
   }

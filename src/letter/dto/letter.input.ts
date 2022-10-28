@@ -13,8 +13,17 @@ export class LetterInput {
   @Field()
   publishedDate: string;
 
+  @Field(() => SiDScalar, { nullable: true })
+  authorId: string;
+
+  @Field(() => SiDScalar, { nullable: true })
+  cityId: string;
+
   @Field(() => SiDScalar)
   companyId: string;
+
+  @Field()
+  type: string;
 
   @Field()
   category: string;
