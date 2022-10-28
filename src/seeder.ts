@@ -16,6 +16,10 @@ import { TagModule } from './tag/tag.module';
 import { TagSeeder } from './tag/tag.seeder';
 import { CompanySeeder } from './company/company.seeder';
 import { CompanyModule } from './company/company.module';
+import { AuthorSeeder } from './author/author.seeder';
+import { AuthorModule } from './author/author.module';
+import { CityModule } from './city/city.module';
+import { CitySeeder } from './city/city.seeder';
 
 seeder({
   imports: [
@@ -29,6 +33,8 @@ seeder({
     OptionModule,
     RoleModule,
     UserModule,
+    AuthorModule,
+    CityModule,
     CompanyModule,
     LetterModule,
     TagModule,
@@ -37,6 +43,8 @@ seeder({
   OptionSeeder,
   RoleSeeder,
   UserSeeder,
+  AuthorSeeder,
+  CitySeeder,
   CompanySeeder,
   LetterSeeder,
   TagSeeder,

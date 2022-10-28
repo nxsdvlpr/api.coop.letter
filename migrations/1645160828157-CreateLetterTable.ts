@@ -5,7 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class CreateLetterTable1645160828155 implements MigrationInterface {
+export class CreateLetterTable1645160828157 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -33,6 +33,16 @@ export class CreateLetterTable1645160828155 implements MigrationInterface {
             type: 'integer',
           },
           {
+            name: 'author_id',
+            type: 'integer',
+            isNullable: true,
+          },
+          {
+            name: 'city_id',
+            type: 'integer',
+            isNullable: true,
+          },
+          {
             name: 'ref',
             type: 'varchar',
             isUnique: true,
@@ -46,6 +56,10 @@ export class CreateLetterTable1645160828155 implements MigrationInterface {
           {
             name: 'company_id',
             type: 'integer',
+          },
+          {
+            name: 'type',
+            type: 'varchar',
           },
           {
             name: 'category',
@@ -78,6 +92,18 @@ export class CreateLetterTable1645160828155 implements MigrationInterface {
         onDelete: 'CASCADE',
       }),
       new TableForeignKey({
+        columnNames: ['author_id'],
+        referencedTableName: 'author',
+        referencedColumnNames: ['id'],
+        onDelete: 'SET NULL',
+      }),
+      new TableForeignKey({
+        columnNames: ['city_id'],
+        referencedTableName: 'city',
+        referencedColumnNames: ['id'],
+        onDelete: 'SET NULL',
+      }),
+      new TableForeignKey({
         columnNames: ['company_id'],
         referencedTableName: 'company',
         referencedColumnNames: ['id'],
@@ -95,6 +121,20 @@ export class CreateLetterTable1645160828155 implements MigrationInterface {
     );
     await queryRunner.dropForeignKey('letter', userForeignKey);
     await queryRunner.dropColumn('letter', 'user_id');
+
+    // Author
+    const authorForeignKey = table.foreignKeys.find(
+      (fk) => fk.columnNames.indexOf('author_id') !== -1,
+    );
+    await queryRunner.dropForeignKey('letter', authorForeignKey);
+    await queryRunner.dropColumn('letter', 'author_id');
+
+    // City
+    const cityForeignKey = table.foreignKeys.find(
+      (fk) => fk.columnNames.indexOf('city_id') !== -1,
+    );
+    await queryRunner.dropForeignKey('letter', cityForeignKey);
+    await queryRunner.dropColumn('letter', 'city_id');
 
     // Company
     const companyForeignKey = table.foreignKeys.find(
