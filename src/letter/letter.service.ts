@@ -118,8 +118,6 @@ export class LetterService extends TypeOrmQueryService<Letter> {
     const companyCounter = company.counter + 1;
     const letterNumber = input.refNo || leadingZero(companyCounter, 4);
 
-    console.log(input);
-
     if (input.type === 'MOU') {
       return `${category}/${letterNumber}/MOU/${companyCode}/${monthRoman}/${year}`;
     } else if (input.type === 'PKS') {
